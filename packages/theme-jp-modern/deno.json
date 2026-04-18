@@ -1,0 +1,5 @@
+{
+  "name": "@resume/theme-jp-modern",
+  "version": "0.1.0",
+  "exports": "./mod.ts"
+}

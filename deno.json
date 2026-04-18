@@ -1,0 +1,41 @@
+{
+  "workspace": [
+    "./packages/cli",
+    "./packages/core",
+    "./packages/types",
+    "./packages/theme-api",
+    "./packages/theme-jp-common",
+    "./packages/theme-jp-basic",
+    "./packages/theme-jp-modern"
+  ],
+  "imports": {
+    "@cliffy/command": "jsr:@cliffy/command@^1.0.0",
+    "@std/assert": "jsr:@std/assert@^1.0.19",
+    "@std/json": "jsr:@std/json@^1.0.3",
+    "@std/jsonc": "jsr:@std/jsonc@^1.0.2",
+    "@std/path": "jsr:@std/path@^1.1.4",
+    "@std/yaml": "jsr:@std/yaml@^1.0.12",
+    "preact": "npm:preact@^10.29.1",
+    "preact-render-to-string": "npm:preact-render-to-string@^6.6.7",
+    "puppeteer": "npm:puppeteer@^24.41.0",
+    "zod": "npm:zod@^4.3.6"
+  },
+  "compilerOptions": {
+    "jsx": "precompile",
+    "jsxImportSource": "preact"
+  },
+  "tasks": {
+    "resume": "deno task --filter @resume/cli dev",
+    "check": "deno fmt --check && deno lint && deno test",
+    "fmt": "deno fmt",
+    "lint": "deno lint",
+    "test": "deno test",
+    "compile": "deno compile --allow-read --allow-write --allow-net --allow-env --node-modules-dir=auto -o ./dist/resume ./packages/cli/src/cli.ts"
+  },
+  "nodeModulesDir": "auto",
+  "lint": {
+    "rules": {
+      "exclude": ["no-slow-types"]
+    }
+  }
+}

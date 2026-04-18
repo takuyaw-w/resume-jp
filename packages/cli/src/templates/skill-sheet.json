@@ -1,0 +1,85 @@
+{
+  "profile": {
+    "name": {
+      "familyName": "",
+      "givenName": "",
+      "familyNameKana": "",
+      "givenNameKana": ""
+    },
+    "gender": "",
+    "nationality": "",
+    "nearestStation": "",
+    "specialtiesText": "",
+    "skillSummary": {
+      "os": [
+        {
+          "name": "",
+          "experienceText": "",
+          "level": "初級"
+        }
+      ],
+      "languages": [
+        {
+          "name": "",
+          "experienceText": "",
+          "level": "初級"
+        }
+      ],
+      "frameworks": [
+        {
+          "name": "",
+          "experienceText": "",
+          "level": "初級"
+        }
+      ],
+      "databases": [
+        {
+          "name": "",
+          "experienceText": "",
+          "level": "初級"
+        }
+      ],
+      "others": [
+        {
+          "name": "",
+          "experienceText": "",
+          "level": "初級"
+        }
+      ]
+    },
+    "selfPr": ""
+  },
+  "qualifications": [],
+  "projects": [
+    {
+      "period": {
+        "from": "",
+        "to": ""
+      },
+      "projectName": "",
+      "overview": "",
+      "role": "member",
+      "techStack": {
+        "languages": [],
+        "serverOs": [],
+        "databases": [],
+        "frameworks": [],
+        "tools": [],
+        "others": []
+      },
+      "phases": {
+        "requirementAnalysis": false,
+        "requirementsDefinition": false,
+        "basicDesign": false,
+        "detailDesign": false,
+        "implementation": false,
+        "unitTest": false,
+        "integrationTest": false,
+        "systemTest": false,
+        "acceptanceTest": false,
+        "release": false,
+        "operationMaintenance": false
+      }
+    }
+  ]
+}
