@@ -71,7 +71,7 @@ function createEmptyProject(): ResumeProject {
     },
     projectName: "",
     overview: "",
-    role: "member",
+    role: "メンバー",
     techStack: {
       languages: [],
       serverOs: [],

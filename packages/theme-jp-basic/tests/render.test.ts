@@ -100,7 +100,7 @@ const doc: ResumeDocument = {
       projectName: "巨大プリン在庫監視システム",
       overview:
         "プリンの残量、補充タイミング、ゆらぎ指数を監視する管理画面の改修対応。",
-      role: "member",
+      role: "メンバー",
       techStack: {
         languages: ["TypeScript", "HTML", "CSS"],
         serverOs: ["Yakiimo Linux"],

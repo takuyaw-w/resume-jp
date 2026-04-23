@@ -1,4 +1,4 @@
-export type ResumeRole = "member" | "leader";
+export type ResumeRole = "メンバー" | "リーダー";
 
 export type ResumePhases = {
   requirementAnalysis: boolean;
