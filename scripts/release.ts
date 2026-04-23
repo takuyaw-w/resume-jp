@@ -72,12 +72,12 @@ async function run(cmd: string[], cwd?: string) {
 }
 
 async function ensureCleanDir(path: string) {
-  await Deno.remove(path, { recursive: true }).catch(() => { });
+  await Deno.remove(path, { recursive: true }).catch(() => {});
   await Deno.mkdir(path, { recursive: true });
 }
 
 async function copyFile(src: string, dest: string) {
-  await Deno.mkdir(join(dest, ".."), { recursive: true }).catch(() => { });
+  await Deno.mkdir(join(dest, ".."), { recursive: true }).catch(() => {});
   await Deno.copyFile(src, dest);
 }
 
@@ -141,7 +141,7 @@ async function main() {
     const ext = target.archiveKind === "zip" ? "zip" : "tar.gz";
     const archivePath = join(releasesDir, `${packageDirName}.${ext}`);
 
-    await Deno.remove(archivePath).catch(() => { });
+    await Deno.remove(archivePath).catch(() => {});
     await createArchive(
       stagingRoot,
       packageDirName,
