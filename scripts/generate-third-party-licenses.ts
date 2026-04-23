@@ -125,7 +125,9 @@ async function readJsonFile<T>(path: string): Promise<T> {
   return JSON.parse(text) as T;
 }
 
-async function fetchJson(url: string): Promise<Record<string, unknown> | undefined> {
+async function fetchJson(
+  url: string,
+): Promise<Record<string, unknown> | undefined> {
   const response = await fetch(url, {
     headers: {
       accept: "application/json",
@@ -167,7 +169,9 @@ function extractLicenseFromHtml(html: string): string | undefined {
 }
 
 async function resolveNpmLicense(pkg: PackageRecord): Promise<ResolvedLicense> {
-  const registryUrl = `https://registry.npmjs.org/${encodeNpmName(pkg.name)}/${pkg.version}`;
+  const registryUrl = `https://registry.npmjs.org/${
+    encodeNpmName(pkg.name)
+  }/${pkg.version}`;
   const data = await fetchJson(registryUrl);
 
   if (!data) {
@@ -179,18 +183,17 @@ async function resolveNpmLicense(pkg: PackageRecord): Promise<ResolvedLicense> {
     };
   }
 
-  const source =
-    (typeof data.homepage === "string" && data.homepage.trim())
-      ? data.homepage
-      : normalizeRepositoryUrl(data.repository) ??
+  const source = (typeof data.homepage === "string" && data.homepage.trim())
+    ? data.homepage
+    : normalizeRepositoryUrl(data.repository) ??
       `https://www.npmjs.com/package/${pkg.name}`;
 
   return {
     ...pkg,
     license: normalizeLicenseValue(
       data.license ??
-      data.licenses ??
-      data.spdxLicenseExpression,
+        data.licenses ??
+        data.spdxLicenseExpression,
     ),
     source,
   };
@@ -213,11 +216,11 @@ async function resolveJsrLicense(pkg: PackageRecord): Promise<ResolvedLicense> {
 
     const license = normalizeLicenseValue(
       data.license ??
-      data.licenses ??
-      data.spdxLicenseExpression ??
-      (data.package && typeof data.package === "object"
-        ? (data.package as Record<string, unknown>).license
-        : undefined),
+        data.licenses ??
+        data.spdxLicenseExpression ??
+        (data.package && typeof data.package === "object"
+          ? (data.package as Record<string, unknown>).license
+          : undefined),
     );
 
     if (license !== "UNKNOWN") {
@@ -230,10 +233,10 @@ async function resolveJsrLicense(pkg: PackageRecord): Promise<ResolvedLicense> {
 
     const repoCandidate = normalizeRepositoryUrl(
       data.repository ??
-      data.source ??
-      (data.package && typeof data.package === "object"
-        ? (data.package as Record<string, unknown>).repository
-        : undefined),
+        data.source ??
+        (data.package && typeof data.package === "object"
+          ? (data.package as Record<string, unknown>).repository
+          : undefined),
     );
 
     if (repoCandidate) {
@@ -367,7 +370,9 @@ function extractGitHubRepoUrl(text: string): string | undefined {
   return `https://github.com/${match[1]}/${match[2]}`;
 }
 
-function parseGitHubRepo(url: string): { owner: string; repo: string } | undefined {
+function parseGitHubRepo(
+  url: string,
+): { owner: string; repo: string } | undefined {
   const match = url.match(/^https:\/\/github\.com\/([^/]+)\/([^/]+?)(?:\/|$)/);
 
   if (!match) {
@@ -389,7 +394,8 @@ async function resolveLicenseFromGitHubRepo(
     return undefined;
   }
 
-  const apiUrl = `https://api.github.com/repos/${parsed.owner}/${parsed.repo}/license`;
+  const apiUrl =
+    `https://api.github.com/repos/${parsed.owner}/${parsed.repo}/license`;
   const response = await fetch(apiUrl, {
     headers: {
       accept: "application/vnd.github+json",
@@ -406,8 +412,8 @@ async function resolveLicenseFromGitHubRepo(
 
   const license = normalizeLicenseValue(
     licenseInfo?.spdx_id ??
-    licenseInfo?.name ??
-    data.license,
+      licenseInfo?.name ??
+      data.license,
   );
 
   if (license === "UNKNOWN") {
@@ -433,7 +439,8 @@ async function main() {
   const output = renderOutput(resolved);
   await Deno.writeTextFile(options.outputPath, output);
 
-  const unknownCount = resolved.filter((item) => item.license === "UNKNOWN").length;
+  const unknownCount =
+    resolved.filter((item) => item.license === "UNKNOWN").length;
 
   console.log(`Generated: ${options.outputPath}`);
   console.log(`Packages: ${resolved.length}`);
