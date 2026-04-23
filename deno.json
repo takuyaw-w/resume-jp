@@ -34,6 +34,7 @@
     "test": "deno test",
     "licenses": "deno run -A ./scripts/generate-third-party-licenses.ts",
     "compile": "deno run -A ./scripts/compile.ts",
+    "release": "deno run -A ./scripts/release.ts",
     "ui:dev": "deno task --cwd packages/ui-app dev",
     "ui:build": "deno task --cwd packages/ui-app build",
     "ui:preview": "deno task --cwd packages/ui-app preview"
