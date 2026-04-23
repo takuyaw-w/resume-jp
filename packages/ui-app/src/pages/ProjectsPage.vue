@@ -120,36 +120,34 @@ function removeSelectedProject() {
             </v-col>
 
             <v-col cols="12" md="6">
-              <v-combobox v-model="selectedProject.techStack.languages" :items="techStackOptions.languages"
-                label="Languages" multiple chips closable-chips clearable hide-selected hint="候補から選択。ないものはそのまま入力可"
-                persistent-hint />
+              <v-combobox v-model="selectedProject.techStack.languages" :items="techStackOptions.languages" label="言語"
+                multiple chips closable-chips clearable hide-selected hint="候補から選択。ないものはそのまま入力可" persistent-hint />
             </v-col>
 
             <v-col cols="12" md="6">
-              <v-combobox v-model="selectedProject.techStack.serverOs" :items="techStackOptions.serverOs"
-                label="Server OS" multiple chips closable-chips clearable hide-selected hint="候補から選択。ないものはそのまま入力可"
-                persistent-hint />
+              <v-combobox v-model="selectedProject.techStack.serverOs" :items="techStackOptions.serverOs" label="サーバーOS"
+                multiple chips closable-chips clearable hide-selected hint="候補から選択。ないものはそのまま入力可" persistent-hint />
             </v-col>
 
             <v-col cols="12" md="6">
               <v-combobox v-model="selectedProject.techStack.databases" :items="techStackOptions.databases"
-                label="Server OS" multiple chips closable-chips clearable hide-selected hint="候補から選択。ないものはそのまま入力可"
+                label="データベース" multiple chips closable-chips clearable hide-selected hint="候補から選択。ないものはそのまま入力可"
                 persistent-hint />
             </v-col>
 
             <v-col cols="12" md="6">
               <v-combobox v-model="selectedProject.techStack.frameworks" :items="techStackOptions.frameworks"
-                label="Server OS" multiple chips closable-chips clearable hide-selected hint="候補から選択。ないものはそのまま入力可"
+                label="フレームワーク" multiple chips closable-chips clearable hide-selected hint="候補から選択。ないものはそのまま入力可"
                 persistent-hint />
             </v-col>
 
             <v-col cols="12" md="6">
-              <v-combobox v-model="selectedProject.techStack.tools" :items="techStackOptions.tools" label="Server OS"
-                multiple chips closable-chips clearable hide-selected hint="候補から選択。ないものはそのまま入力可" persistent-hint />
+              <v-combobox v-model="selectedProject.techStack.tools" :items="techStackOptions.tools" label="ツール" multiple
+                chips closable-chips clearable hide-selected hint="候補から選択。ないものはそのまま入力可" persistent-hint />
             </v-col>
 
             <v-col cols="12" md="6">
-              <v-combobox v-model="selectedProject.techStack.others" :items="techStackOptions.others" label="Server OS"
+              <v-combobox v-model="selectedProject.techStack.others" :items="techStackOptions.others" label="その他"
                 multiple chips closable-chips clearable hide-selected hint="候補から選択。ないものはそのまま入力可" persistent-hint />
             </v-col>
 
