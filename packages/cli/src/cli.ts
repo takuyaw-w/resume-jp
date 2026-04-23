@@ -3,6 +3,7 @@ import { initCommand } from "./commands/init.ts";
 import { exportCommand } from "./commands/export.ts";
 import { previewCommand } from "./commands/preview.ts";
 import { validateCommand } from "./commands/validate.ts";
+import { uiCommand } from "./commands/ui.ts";
 
 export function createCli() {
   return new Command()
@@ -12,7 +13,8 @@ export function createCli() {
     .command("init", initCommand)
     .command("validate", validateCommand)
     .command("export", exportCommand)
-    .command("preview", previewCommand);
+    .command("preview", previewCommand)
+    .command("ui", uiCommand);
 }
 
 if (import.meta.main) {

@@ -24,12 +24,16 @@ function SkillItemList(props: { items: SkillItem[] }) {
     <ul class="skill-list">
       {props.items.map((item) => {
         const meta = [item.experienceText, item.level]
-          .filter((value) => typeof value === "string" && value.trim().length > 0)
+          .filter((value) =>
+            typeof value === "string" && value.trim().length > 0
+          )
           .join(" / ");
 
         return (
           <li
-            key={`${item.name}-${item.experienceText ?? ""}-${item.level ?? ""}`}
+            key={`${item.name}-${item.experienceText ?? ""}-${
+              item.level ?? ""
+            }`}
             class="skill-list__item"
           >
             <span class="skill-list__name">{item.name}</span>
@@ -502,7 +506,10 @@ function ResumePage(props: { document: ResumeDocument }) {
 
             <div class="hero__meta-grid">
               <MetaPill label="イニシャル" value={doc.profile.name.initials} />
-              <MetaPill label="経験年数" value={doc.profile.experience.totalLabel} />
+              <MetaPill
+                label="経験年数"
+                value={doc.profile.experience.totalLabel}
+              />
               <MetaPill label="最寄り駅" value={doc.profile.nearestStation} />
               <MetaPill label="性別" value={doc.profile.gender ?? "-"} />
               <MetaPill label="国籍" value={doc.profile.nationality ?? "-"} />
@@ -516,9 +523,7 @@ function ResumePage(props: { document: ResumeDocument }) {
                 {specialtyLines.length > 0
                   ? (
                     <ul class="bullet-list">
-                      {specialtyLines.map((line) => (
-                        <li key={line}>{line}</li>
-                      ))}
+                      {specialtyLines.map((line) => <li key={line}>{line}</li>)}
                     </ul>
                   )
                   : <p class="pre-wrap">{doc.profile.specialtiesText}</p>}
@@ -612,7 +617,10 @@ function ResumePage(props: { document: ResumeDocument }) {
                 <h2 class="panel__title">スキルサマリ</h2>
                 <div class="skill-grid">
                   <SkillBlock label="OS" items={doc.profile.skillSummary.os} />
-                  <SkillBlock label="言語" items={doc.profile.skillSummary.languages} />
+                  <SkillBlock
+                    label="言語"
+                    items={doc.profile.skillSummary.languages}
+                  />
                   <SkillBlock
                     label="フレームワーク"
                     items={doc.profile.skillSummary.frameworks}
@@ -621,7 +629,10 @@ function ResumePage(props: { document: ResumeDocument }) {
                     label="データベース"
                     items={doc.profile.skillSummary.databases}
                   />
-                  <SkillBlock label="その他" items={doc.profile.skillSummary.others} />
+                  <SkillBlock
+                    label="その他"
+                    items={doc.profile.skillSummary.others}
+                  />
                 </div>
               </section>
 
@@ -657,6 +668,8 @@ export const jpModernTheme: ThemeModule = {
     version: "0.1.0",
   },
   render(document) {
-    return `<!doctype html>${renderToString(<ResumePage document={document} />)}`;
+    return `<!doctype html>${
+      renderToString(<ResumePage document={document} />)
+    }`;
   },
 };
