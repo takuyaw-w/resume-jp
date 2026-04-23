@@ -1,4 +1,6 @@
-# resume-jp
+<h1 align="center">
+  <img src="./asset/logo.png" alt="resume-jp" width="600" />
+</h1>
 
 `resume-jp` is a Deno-based CLI tool for managing Japanese resume / skill sheet
 data in JSON, JSONC, or YAML, and exporting it to HTML or PDF.
