@@ -100,8 +100,8 @@ Default output:
 
 PDF export requires a Chrome / Chromium executable.
 
-The CLI tries to auto-detect Chrome on your system.
-If auto-detection does not work, pass `--browser-path` or set `RESUME_JP_CHROME_PATH`.
+The CLI tries to auto-detect Chrome on your system. If auto-detection does not
+work, pass `--browser-path` or set `RESUME_JP_CHROME_PATH`.
 
 ```bash
 deno task resume -- export ./resume.yaml --format pdf
