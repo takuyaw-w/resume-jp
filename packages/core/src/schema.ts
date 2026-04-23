@@ -12,7 +12,7 @@ import type {
   SkillLevel,
 } from "@resume/types";
 
-const roleSchema: z.ZodType<ResumeRole> = z.enum(["member", "leader"]);
+const roleSchema: z.ZodType<ResumeRole> = z.enum(["メンバー", "リーダー"]);
 
 const skillLevelSchema: z.ZodType<SkillLevel> = z.enum([
   "初級",

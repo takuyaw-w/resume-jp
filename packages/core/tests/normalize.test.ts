@@ -82,7 +82,7 @@ function createInput() {
         },
         projectName: " 先に入力した古い案件 ",
         overview: " 古い案件の概要 ",
-        role: "member" as const,
+        role: "メンバー" as const,
         techStack: {
           languages: [" JavaScript ", " HTML "],
           serverOs: [" Ubuntu "],
@@ -113,7 +113,7 @@ function createInput() {
         projectName: " 巨大プリン在庫監視システム ",
         overview:
           " プリンの残量、補充タイミング、ゆらぎ指数を監視する管理画面の改修対応。 ",
-        role: "member" as const,
+        role: "メンバー" as const,
         techStack: {
           languages: [" TypeScript ", " HTML ", " CSS "],
           serverOs: [" Yakiimo Linux "],

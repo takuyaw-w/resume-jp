@@ -15,7 +15,7 @@ export const PHASE_LABELS: Record<keyof ResumePhases, string> = {
 };
 
 export function renderRole(role: ResumeRole): string {
-  return role === "leader" ? "リーダー" : "メンバー";
+  return role === "リーダー" ? "リーダー" : "メンバー";
 }
 
 export function getEnabledPhaseLabels(phases: ResumePhases): string[] {

@@ -52,7 +52,7 @@ const mockDocument: ResumeInput = {
       },
       projectName: "予約受付管理サイト運用改善",
       overview: "予約受付、キャンセル、通知配信を扱う管理サイトの改善案件。",
-      role: "member",
+      role: "メンバー",
       techStack: {
         languages: ["TypeScript", "PHP", "HTML", "CSS"],
         serverOs: ["Amazon Linux"],
