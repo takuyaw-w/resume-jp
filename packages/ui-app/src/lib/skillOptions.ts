@@ -105,7 +105,10 @@ export const toolOptions = [
   "Swagger",
 ] as const;
 
-export const skillOptionsByCategory: Record<SkillCategoryKey, readonly string[]> = {
+export const skillOptionsByCategory: Record<
+  SkillCategoryKey,
+  readonly string[]
+> = {
   os: osOptions,
   languages: languageOptions,
   frameworks: frameworkOptions,

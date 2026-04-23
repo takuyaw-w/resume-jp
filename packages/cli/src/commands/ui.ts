@@ -46,7 +46,7 @@ async function ensureInputExists(inputPath: string): Promise<void> {
 }
 
 function resolveUiDistDir(): string {
-  return join(import.meta.dirname!, "../../../ui-app/dist/")
+  return join(import.meta.dirname!, "../../../ui-app/dist/");
 }
 
 async function ensureUiBuildExists(uiDistDir: string): Promise<void> {
