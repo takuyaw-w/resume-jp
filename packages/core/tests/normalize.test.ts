@@ -65,7 +65,8 @@ function createInput() {
           },
         ],
       },
-      selfPr: "  ふんわりした要求の整理と、画面まわりの改善を中心に対応してきました。 ",
+      selfPr:
+        "  ふんわりした要求の整理と、画面まわりの改善を中心に対応してきました。 ",
     },
     qualifications: [
       {
@@ -110,7 +111,8 @@ function createInput() {
           to: " 2024/12 ",
         },
         projectName: " 巨大プリン在庫監視システム ",
-        overview: " プリンの残量、補充タイミング、ゆらぎ指数を監視する管理画面の改修対応。 ",
+        overview:
+          " プリンの残量、補充タイミング、ゆらぎ指数を監視する管理画面の改修対応。 ",
         role: "member" as const,
         techStack: {
           languages: [" TypeScript ", " HTML ", " CSS "],
@@ -219,7 +221,10 @@ Deno.test("normalizeResume: trims values and derives display fields", () => {
 
   assertEquals(result.projects[0].period.from, "2023/01");
   assertEquals(result.projects[0].period.to, "2024/12");
-  assertEquals(result.projects[0].overview, "プリンの残量、補充タイミング、ゆらぎ指数を監視する管理画面の改修対応。");
+  assertEquals(
+    result.projects[0].overview,
+    "プリンの残量、補充タイミング、ゆらぎ指数を監視する管理画面の改修対応。",
+  );
   assertEquals(result.projects[0].techStack.languages, [
     "TypeScript",
     "HTML",
@@ -250,7 +255,10 @@ Deno.test("normalizeResume: empty gender and nationality become undefined", () =
   assertEquals(result.profile.name.fullNameKana, "ソラノ ピロシキ");
   assertEquals(result.profile.name.initials, "S.P.");
   assertEquals(result.profile.specialtiesText, "・ふわっとした要件の整理");
-  assertEquals(result.profile.selfPr, "画面の配置と雰囲気調整を得意としています。");
+  assertEquals(
+    result.profile.selfPr,
+    "画面の配置と雰囲気調整を得意としています。",
+  );
   assertEquals(result.profile.experience.totalMonths, 0);
   assertEquals(result.profile.experience.totalLabel, "0か月");
 });

@@ -1,8 +1,4 @@
-import {
-  assertEquals,
-  assertRejects,
-  assertStringIncludes,
-} from "@std/assert";
+import { assertEquals, assertRejects, assertStringIncludes } from "@std/assert";
 import type { ResumeDocument } from "@resume/theme-api";
 import { resolveTheme } from "../src/themes/resolve.ts";
 

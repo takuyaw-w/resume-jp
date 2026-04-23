@@ -7,18 +7,24 @@ import {
 } from "@resume/theme-jp-common";
 
 function SkillItemList(
-  props: { items: Array<{ name: string; experienceText?: string; level?: string }> },
+  props: {
+    items: Array<{ name: string; experienceText?: string; level?: string }>;
+  },
 ) {
   return (
     <ul class="skill-item-list">
       {props.items.map((item) => {
         const meta = [item.experienceText, item.level]
-          .filter((value) => typeof value === "string" && value.trim().length > 0)
+          .filter((value) =>
+            typeof value === "string" && value.trim().length > 0
+          )
           .join(" / ");
 
         return (
           <li
-            key={`${item.name}-${item.experienceText ?? ""}-${item.level ?? ""}`}
+            key={`${item.name}-${item.experienceText ?? ""}-${
+              item.level ?? ""
+            }`}
             class="skill-item"
           >
             {meta ? `${item.name}（${meta}）` : item.name}
@@ -242,23 +248,35 @@ function ResumePage(props: { document: ResumeDocument }) {
               <tbody>
                 <tr>
                   <th>OS</th>
-                  <td><SkillItemList items={doc.profile.skillSummary.os} /></td>
+                  <td>
+                    <SkillItemList items={doc.profile.skillSummary.os} />
+                  </td>
                 </tr>
                 <tr>
                   <th>言語</th>
-                  <td><SkillItemList items={doc.profile.skillSummary.languages} /></td>
+                  <td>
+                    <SkillItemList items={doc.profile.skillSummary.languages} />
+                  </td>
                 </tr>
                 <tr>
                   <th>フレームワーク</th>
-                  <td><SkillItemList items={doc.profile.skillSummary.frameworks} /></td>
+                  <td>
+                    <SkillItemList
+                      items={doc.profile.skillSummary.frameworks}
+                    />
+                  </td>
                 </tr>
                 <tr>
                   <th>データベース</th>
-                  <td><SkillItemList items={doc.profile.skillSummary.databases} /></td>
+                  <td>
+                    <SkillItemList items={doc.profile.skillSummary.databases} />
+                  </td>
                 </tr>
                 <tr>
                   <th>その他</th>
-                  <td><SkillItemList items={doc.profile.skillSummary.others} /></td>
+                  <td>
+                    <SkillItemList items={doc.profile.skillSummary.others} />
+                  </td>
                 </tr>
               </tbody>
             </table>
@@ -336,7 +354,9 @@ function ResumePage(props: { document: ResumeDocument }) {
                       </tr>
                       <tr>
                         <th>担当工程</th>
-                        <td>{getEnabledPhaseLabels(project.phases).join(" / ")}</td>
+                        <td>
+                          {getEnabledPhaseLabels(project.phases).join(" / ")}
+                        </td>
                       </tr>
                     </tbody>
                   </table>
@@ -357,6 +377,8 @@ export const jpBasicTheme: ThemeModule = {
     version: "0.1.0",
   },
   render(document) {
-    return `<!doctype html>${renderToString(<ResumePage document={document} />)}`;
+    return `<!doctype html>${
+      renderToString(<ResumePage document={document} />)
+    }`;
   },
 };
