@@ -41,7 +41,7 @@ scripts/
 ### Requirements
 
 - Deno
-- A working environment for Puppeteer if you want PDF export
+- A Chrome / Chromium executable if you want PDF export
 
 ### Initial setup
 
@@ -98,8 +98,17 @@ Default output:
 
 ### 5. Export PDF
 
+PDF export requires a Chrome / Chromium executable.
+
+The CLI tries to auto-detect Chrome on your system.
+If auto-detection does not work, pass `--browser-path` or set `RESUME_JP_CHROME_PATH`.
+
 ```bash
 deno task resume -- export ./resume.yaml --format pdf
+```
+
+```bash
+deno task resume -- export ./resume.yaml --format pdf --browser-path /usr/bin/google-chrome
 ```
 
 Default output:
@@ -153,6 +162,7 @@ Options:
 - `-f, --format <html|pdf>`
 - `-o, --out <path>`
 - `-t, --theme <theme>`
+- `--browser-path <path>`
 
 ### `preview`
 
