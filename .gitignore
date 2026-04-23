@@ -1,6 +1,5 @@
 node_modules
 .deno-report.xml
-*.html
 *.pdf
 *resume.json
 *resume.yaml
