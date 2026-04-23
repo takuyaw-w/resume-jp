@@ -26,8 +26,17 @@ export const exportCommand = new Command()
   .option("-t, --theme <theme:string>", "Theme id or path", {
     default: "jp-basic",
   })
+  .option(
+    "--browser-path <path:string>",
+    "Chrome/Chromium executable path (overrides auto-detection)",
+  )
   .action(async (
-    options: { format: string; out?: string; theme: string },
+    options: {
+      format: string;
+      out?: string;
+      theme: string;
+      browserPath?: string;
+    },
     input: string,
   ) => {
     if (!isExportFormat(options.format)) {
@@ -69,7 +78,9 @@ export const exportCommand = new Command()
       }
 
       const outPath = options.out ?? "./dist/resume.pdf";
-      await renderPdfFromHtml(html, outPath);
+      await renderPdfFromHtml(html, outPath, {
+        browserPath: options.browserPath,
+      });
 
       console.log(`Exported HTML: ${outPath}`);
       console.log(`Theme: ${theme.meta.id}`);
