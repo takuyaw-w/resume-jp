@@ -32,6 +32,7 @@
     "fmt": "deno fmt",
     "lint": "deno lint",
     "test": "deno test",
+    "licenses": "deno run -A ./scripts/generate-third-party-licenses.ts",
     "compile": "deno run -A ./scripts/compile.ts",
     "ui:dev": "deno task --cwd packages/ui-app dev",
     "ui:build": "deno task --cwd packages/ui-app build",
@@ -42,6 +43,5 @@
     "rules": {
       "exclude": ["no-slow-types"]
     }
-  },
-  "allowScripts": ["npm:puppeteer@24.41.0"]
+  }
 }
