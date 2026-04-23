@@ -9,7 +9,29 @@ permissions:
   contents: write
 
 jobs:
+  licenses:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Setup Deno
+        uses: denoland/setup-deno@v2
+        with:
+          deno-version: v2.x
+
+      - name: Generate third-party licenses
+        run: deno task licenses
+
+      - name: Upload third-party licenses artifact
+        uses: actions/upload-artifact@v7
+        with:
+          name: third-party-licenses
+          path: THIRD_PARTY_LICENSES.txt
+
+
   build:
+    needs: licenses
     strategy:
       fail-fast: false
       matrix:
@@ -31,9 +53,12 @@ jobs:
         uses: denoland/setup-deno@v2
         with:
           deno-version: v2.x
-
-      - name: Generate third-party licenses
-        run: deno task licenses
+      
+      - name: Download third-party licenses artifact
+        uses: actions/download-artifact@v8
+        with:
+          name: third-party-licenses
+          path: .
 
       - name: Build release artifact
         shell: bash
